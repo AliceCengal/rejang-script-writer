@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Rejang&display=swap");
+
+.noto-sans-rejang-regular {
+  font-family: "Noto Sans Rejang", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+html,
+body,
+div#root {
+  min-height: 100dvh;
+}
+
+div#root {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: minmax(0, 1fr);
+  background-color: var(--c-back);
+  color: var(--c-con-9);
+}
+
+:root {
+  --c-back: aliceblue;
+  --c-front: royalblue;
+  --c-con-1: rgba(0, 0, 0, 10%);
+  --c-con-2: rgba(0, 0, 0, 20%);
+  --c-con-3: rgba(0, 0, 0, 30%);
+  --c-con-4: rgba(0, 0, 0, 40%);
+  --c-con-5: rgba(0, 0, 0, 50%);
+  --c-con-6: rgba(0, 0, 0, 60%);
+  --c-con-7: rgba(0, 0, 0, 70%);
+  --c-con-8: rgba(0, 0, 0, 80%);
+  --c-con-9: rgba(0, 0, 0, 90%);
+  --c-conf-1: rgba(255, 255, 255, 10%);
+  --c-conf-2: rgba(255, 255, 255, 20%);
+  --c-conf-3: rgba(255, 255, 255, 30%);
+  --c-conf-4: rgba(255, 255, 255, 40%);
+  --c-conf-5: rgba(255, 255, 255, 50%);
+  --c-conf-6: rgba(255, 255, 255, 60%);
+  --c-conf-7: rgba(255, 255, 255, 70%);
+  --c-conf-8: rgba(255, 255, 255, 80%);
+  --c-conf-9: rgba(255, 255, 255, 90%);
+  --sp-0: 0px;
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-7: 28px;
+  --sp-8: 32px;
+  --sp-9: 36px;
+  --sp-X: 40px;
+  --sp-xs: 312px;
+  --sp-sm: 636px;
+  --sp-md: 960px;
+  --sp-lg: 1272px;
+  --header-height: 56px;
+  --sidebar-width: 200px;
+  --sidebar-width-collapse: 44px;
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}

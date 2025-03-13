@@ -1,0 +1,207 @@
+.base {
+  border: none;
+  border-radius: var(--sp-1);
+  position: relative;
+}
+
+.button_text {
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1;
+  font-size: 0.9rem;
+  align-content: center;
+}
+
+.button_text > span {
+  vertical-align: middle;
+}
+
+a.base,
+a.base:hover {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.bold,
+.bold:hover {
+  background-color: var(--c-front);
+  color: var(--c-conf-9);
+}
+
+.bold:hover::after,
+.bold.active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--c-conf-2);
+}
+
+.bold_f,
+.bold_f:hover {
+  background-color: var(--c-back);
+  color: var(--c-con-9);
+}
+
+.bold_f:hover::after,
+.bold_f.active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--c-con-2);
+}
+
+.soft,
+.soft:hover {
+  background-color: var(--c-con-1);
+  color: var(--c-con-9);
+}
+
+.soft:hover::after,
+.soft.active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--c-con-1);
+  pointer-events: none;
+}
+
+.soft_f,
+.soft_f:hover {
+  background-color: var(--c-conf-1);
+  color: var(--c-conf-9);
+}
+
+.soft_f:hover::after,
+.soft_f.active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--c-conf-1);
+  pointer-events: none;
+}
+
+.tab,
+.tab:hover {
+  background-color: var(--c-con-1);
+  color: var(--c-con-9);
+  border-top: 1px solid var(--c-con-9);
+  border-right: 1px solid var(--c-con-9);
+  border-left: 1px solid var(--c-con-9);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.tab:not(.active):not(:hover)::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--c-con-1);
+  pointer-events: none;
+}
+
+.tab:not(.active) {
+  border-bottom: 1px solid var(--c-con-9);
+}
+
+*:has(> .tab) {
+  display: flex;
+  overflow-x: auto;
+}
+
+*:has(> .tab)::after {
+  content: "";
+  display: block;
+  flex-grow: 1;
+  border-bottom: 1px solid var(--c-con-9);
+}
+
+.line,
+.line:hover {
+  border: 1px solid var(--c-front);
+  color: var(--c-front);
+  background-color: transparent;
+}
+
+.line:hover::after,
+.line.active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--c-con-2);
+  pointer-events: none;
+}
+
+.line_f,
+.line_f:hover {
+  border: 1px solid var(--c-back);
+  color: var(--c-front);
+  background-color: transparent;
+}
+
+.line_f:hover::after,
+.line_f.active::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--c-conf-2);
+  pointer-events: none;
+}
+
+.text {
+  color: var(--c-front);
+  background-color: transparent;
+}
+
+.text:hover,
+.text.active {
+  color: var(--c-con-8);
+}
+
+.text_f {
+  color: var(--c-back);
+  background-color: transparent;
+}
+
+.text_f:hover,
+.text_f.active {
+  color: var(--c-conf-8);
+}
+
+.small {
+  height: 28px;
+  padding-inline: 0;
+}
+
+.small > *:not(svg):not(:global(.spinner)) {
+  margin-inline: var(--sp-2);
+}
+
+.regular {
+  height: 40px;
+  padding-inline: var(--sp-2);
+}
+
+.regular > *:not(svg):not(:global(.spinner)) {
+  margin-inline: var(--sp-2);
+}
+
+.large {
+  height: 48px;
+  padding-inline: var(--sp-4);
+}
+
+.large > *:not(svg):not(:global(.spinner)) {
+  margin-inline: var(--sp-2);
+}
+
+.center {
+  text-align: center;
+}
+
+.start {
+  text-align: start;
+}
+
+.end {
+  text-align: end;
+}

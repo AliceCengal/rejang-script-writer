@@ -1,0 +1,56 @@
+.main {
+  max-width: var(--sp-sm);
+  justify-self: center;
+  margin-block-start: var(--sp-X);
+  display: grid;
+  align-content: start;
+  gap: var(--sp-4);
+}
+
+.main hgroup {
+  text-align: center;
+}
+
+.title,
+.main ul {
+  margin: 0;
+}
+
+.sub-title {
+  font-family: "Noto Sans Rejang";
+  font-size: xx-large;
+}
+
+.script-area {
+  font-family: "Noto Sans Rejang";
+  font-size: xx-large;
+  background-color: white;
+  border: 1px solid var(--c-con-5);
+  min-height: 128px;
+  padding-inline: var(--sp-2);
+  border-radius: var(--sp-1);
+  white-space: pre;
+}
+
+.roman-area {
+  background-color: white;
+  font-size: x-large;
+  border: 1px solid var(--c-con-5);
+  min-height: 128px;
+  padding-inline: var(--sp-2);
+  border-radius: var(--sp-1);
+  white-space: pre;
+}
+
+.main form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+}
+
+.main form output {
+  grid-column: 1 / -1;
+}
+
+.footer {
+  text-align: center;
+}
