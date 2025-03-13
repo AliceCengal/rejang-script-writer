@@ -89,7 +89,7 @@ export default function App() {
       <div className={styles["roman-area"]}>{roman}</div>
 
       <form onSubmit={handleSubmit}>
-        <input name="prompt" />
+        <input name="prompt" placeholder="Type a syllable here" />
         <button type="submit" className={button({ kind: "bold" })}>
           <MdOutlineSubdirectoryArrowLeft size={20} />
         </button>
