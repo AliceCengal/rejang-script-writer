@@ -1,5 +1,9 @@
-import { FormEvent, useState } from "react";
-import { MdClear, MdOutlineSubdirectoryArrowLeft } from "react-icons/md";
+import { FormEvent, useEffect, useState } from "react";
+import {
+  MdArrowBack,
+  MdClear,
+  MdOutlineSubdirectoryArrowLeft,
+} from "react-icons/md";
 
 import styles from "./app.module.css";
 import { button } from "./components/common/button";
@@ -7,6 +11,17 @@ import { button } from "./components/common/button";
 export default function App() {
   const [script, setScript] = useState("");
   const [roman, setRoman] = useState("");
+  const [scriptCodePoints] = useState<number[]>([]);
+  const [romanCodePoints] = useState<number[]>([]);
+
+  useEffect(() => {
+    console.log({
+      // script,
+      // scriptCodePoints,
+      roman,
+      romanCodePoints,
+    });
+  }, [roman]);
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -16,27 +31,44 @@ export default function App() {
 
     if (prompt.trim() == "") {
       const WS = roman[roman.length - 1] == " " ? "\n" : " ";
+      scriptCodePoints.push(script.length);
+      romanCodePoints.push(roman.length);
       setScript((s) => s + WS);
       setRoman((s) => s + WS);
       feedback.innerHTML = "";
       f.reset();
       return;
     }
-    const script = REJANG_SCRIPT[prompt.toLocaleLowerCase()];
-    if (!script || script == "INVALID") {
+    const scr = REJANG_SCRIPT[prompt.toLocaleLowerCase()];
+    if (!scr || scr == "INVALID") {
       feedback.innerHTML = "Invalid character";
       return;
     }
 
-    setScript((s) => s + script);
+    scriptCodePoints.push(script.length);
+    romanCodePoints.push(roman.length);
+    setScript((s) => s + scr);
     setRoman((s) => s + prompt);
     feedback.innerHTML = "";
     f.reset();
   }
 
+  function handleDelete() {
+    const iy = scriptCodePoints.pop();
+    if (typeof iy != "undefined") {
+      setScript((s) => s.slice(0, iy));
+    }
+    const ix = romanCodePoints.pop();
+    if (typeof ix != "undefined") {
+      setRoman((s) => s.slice(0, ix));
+    }
+  }
+
   function handleClear(e: any) {
     setScript("");
     setRoman("");
+    scriptCodePoints.splice(0);
+    romanCodePoints.splice(0);
     const f = e.target.form;
     if (f) {
       f.reset();
@@ -89,9 +121,19 @@ export default function App() {
       <div className={styles["roman-area"]}>{roman}</div>
 
       <form onSubmit={handleSubmit}>
-        <input name="prompt" placeholder="Type a syllable here" />
-        <button type="submit" className={button({ kind: "bold" })}>
-          <MdOutlineSubdirectoryArrowLeft size={20} />
+        <div className={styles["input-cluster"]}>
+          <input name="prompt" placeholder="Type a syllable here" />
+          <button type="submit" className={button({ kind: "bold" })}>
+            <MdOutlineSubdirectoryArrowLeft size={20} />
+          </button>
+        </div>
+
+        <button
+          type="button"
+          className={button({ kind: "soft" })}
+          onClick={handleDelete}
+        >
+          <MdArrowBack size={20} />
         </button>
         <button
           type="button"
@@ -100,6 +142,7 @@ export default function App() {
         >
           <MdClear size={20} />
         </button>
+
         <output name="feedback"></output>
       </form>
 

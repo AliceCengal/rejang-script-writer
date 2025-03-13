@@ -1,10 +1,19 @@
 .main {
   max-width: var(--sp-sm);
   justify-self: center;
-  margin-block-start: var(--sp-X);
+  margin: var(--sp-2);
   display: grid;
   align-content: start;
   gap: var(--sp-4);
+}
+.main ul {
+  padding-left: var(--sp-4);
+}
+
+@media (min-width: 636px) {
+  .main {
+    margin-block-start: var(--sp-X);
+  }
 }
 
 .main hgroup {
@@ -45,6 +54,12 @@
 .main form {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto auto;
+  column-gap: var(--sp-4);
+}
+
+.input-cluster {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
 }
 
 .main form output {
